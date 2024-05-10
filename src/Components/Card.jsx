@@ -1,8 +1,53 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../Hook/useAuth";
 
-const Card = ({ item }) => {
+const Card = ({ item, items, setItems }) => {
+
+    const { user } = useAuth();
 
     const { _id, title, difficulty, description, marks, deadline, photo, username, email } = item;
+
+    const handleDelete = id => {
+        if(user.email !== email){
+           return Swal.fire({
+            title: "Not Permitted",
+            text: "You can not delete this assignment",
+            icon: "error"
+        });
+        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/delete/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        //console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Craft item has been deleted!",
+                                icon: "success"
+                            });
+                           // console.log('deleted');
+                            const remaining = items.filter(cof => cof._id != _id);
+                            setItems(remaining);
+                        }
+                    });
+
+
+            }
+        });
+    };
 
     return (
         <div className="w-full max-w-xs mx-auto" >
@@ -11,18 +56,14 @@ const Card = ({ item }) => {
 
                 <div className="py-4 px-6">
                     <h2 className="text-xl font-semibold ">{title}</h2>
-                    
-
-
-                
                     <div className="flex justify-between items-center mt-4">
-                        <div className="flex items-center">
+                        <div className="flex items-center justify-between">
                             <span className="text-sm  mr-2">
                                 Marks: {marks}
                             </span>
-                            {/* <span className="text-sm ">
-                                Rating: rating
-                            </span> */}
+                            <span className="text-sm  mr-2">
+                            Deadline: {new Date(deadline).toLocaleDateString()}
+                            </span>
                         </div>
                         <span className={`text-xs font-semibold px-2 py-1 uppercase rounded bg-red-200`}>
                             {difficulty}

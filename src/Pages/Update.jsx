@@ -1,17 +1,46 @@
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Swal from "sweetalert2";
 import useAuth from "../Hook/useAuth";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const CreateAssignment = () => {
-    const [startDate, setStartDate] = useState(new Date())
 
+const Update = () => {
+
+    const { id } = useParams();
     const { user } = useAuth();
 
 
-    const handleAddProduct = async e => {
+    //const [redirect, setRedirect] = useState(false);
 
+    const [startDate, setStartDate] = useState(new Date())
+
+    const [product, setProduct] = useState({});
+
+    //id die khuje nie aslam
+    useEffect(() => {
+
+        fetch(`http://localhost:5000/update/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setProduct(data);
+            })
+
+    }, [id]);
+
+    //find already set difficulty level
+    useEffect(() => {
+        const selectElement = document.getElementById("difficultySelect");
+        if (selectElement) {
+            selectElement.value = product.difficulty;
+        }
+    }, [product.difficulty]);
+
+
+    //update using form
+    const handleUpdate = e => {
         e.preventDefault();
 
         const form = e.target;
@@ -22,59 +51,55 @@ const CreateAssignment = () => {
         const marks = form.marks.value;
         const photo = form.photo.value;
         const deadline = startDate;
-        const username = user.displayName;
-        const email = user.email;
-
-        //console.log(title, difficulty, description, marks, deadline, photo, username, email);
+        //const username = user.displayName;
+        //const email = user.email;
 
         const info = {
-            title, difficulty, description, marks, deadline, photo, username, email
+            title, difficulty, description, marks, deadline, photo
         };
 
-        console.log(info);
+        //console.log(info);
 
-        fetch('http://localhost:5000/add-assignment', {
-            method: 'POST',
+
+        fetch(`http://localhost:5000/update/${id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(info) //data gula k stringfy kore server e pathaitece
+            body: JSON.stringify(info)
         })
             .then(res => res.json())
             .then(data => {
-                //console.log(data);
-                if (data.insertedId) {
+                if (data.modifiedCount) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Assignment Created Successfully!',
+                        text: 'Assignment Updated Successfully!',
                         icon: 'success',
-                        confirmButtonText: 'Ok'
+                        confirmButtonText: 'ok'
                     })
+
+                  //  setRedirect(true); 
                 }
             })
-
     }
-
+   
 
     return (
         <div className="">
 
-            <h1 className="text-3xl font-bold text-center mt-8">Add an Assignment
+            <h1 className="text-3xl font-bold text-center mt-8">Update Assignment
             </h1>
-
-
             <div className="flex flex-col-reverse sm:flex-row-reverse">
-
-
-                <form onSubmit={handleAddProduct} className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
+                <form onSubmit={handleUpdate} 
+                className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
 
                     <div className="form-control">
                         <label className="label">
                             <span className="text-gray-700">Title</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="title" placeholder="Title"
-                                className="input input-bordered w-full" required />
+                            <input type="text" name="title" placeholder="Title" 
+                                className="input input-bordered w-full" defaultValue={product.title} />
                         </label>
                     </div>
 
@@ -83,11 +108,10 @@ const CreateAssignment = () => {
                             <span className="text-gray-700">Difficulty Level</span>
                         </label>
 
-
                         <div className="input-group">
-                            <select name="difficulty"
+                            <select name="difficulty"  id="difficultySelect"
                                 className="select select-bordered w-full"
-                                required >
+                                defaultValue={product.difficulty} >
                                 <option value="">Select Difficulty Level</option>
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
@@ -103,14 +127,9 @@ const CreateAssignment = () => {
                         </label>
                         <label className="input-group">
                             <input type="text" name="description" placeholder="Description"
-                                className="input input-bordered w-full py-12" required />
+                                className="input input-bordered w-full py-12" defaultValue={product.description} />
                         </label>
                     </div>
-
-
-                    {/* </div> */}
-
-                    {/* <div className="md:flex mb-4"> */}
 
 
                     <div className="md:flex mb-4">
@@ -120,8 +139,8 @@ const CreateAssignment = () => {
                             </label>
                             <label className="input-group">
                                 <input type="number" name="marks" placeholder="Marks"
-                                    className="input input-bordered w-full" step="any"
-                                    min="5" max="100" required />
+                                    className="input input-bordered w-full" step="any" defaultValue={product.marks}
+                                    min="1" max="100"  />
                             </label>
                         </div>
 
@@ -132,7 +151,7 @@ const CreateAssignment = () => {
                             </label>
 
                             <DatePicker
-                                className='border p-3 rounded-md'
+                                className='border p-3 rounded-md' 
                                 selected={startDate}
                                 onChange={date => setStartDate(date)}
                             />
@@ -149,7 +168,7 @@ const CreateAssignment = () => {
                             </label>
                             <label className="input-group">
                                 <input type="text" name="photo" placeholder="Photo URL"
-                                    className="input input-bordered w-full" required />
+                                    className="input input-bordered w-full" defaultValue={product.photo} />
                             </label>
                         </div>
                     </div>
@@ -157,7 +176,7 @@ const CreateAssignment = () => {
 
 
                     <input className="btn btn-block bg-black text-white w-full"
-                        type="submit" value="Add" />
+                        type="submit" value="Update" />
                 </form>
 
                 <div className="flex justify-center items-center">
@@ -168,4 +187,4 @@ const CreateAssignment = () => {
     );
 };
 
-export default CreateAssignment;
+export default Update;

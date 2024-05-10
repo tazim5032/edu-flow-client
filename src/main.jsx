@@ -12,6 +12,10 @@ import Register from './Pages/Register.jsx';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider.jsx';
 import CreateAssignment from './Pages/CreateAssignment.jsx';
 import AllAssignment from './Pages/AllAssignment.jsx';
+import Update from './Pages/Update.jsx';
+import Details from './Pages/Details.jsx';
+import SubmitForm from './Pages/SubmitForm.jsx';
+import MySubmission from './Pages/MySubmission.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        
+
       },
       {
         path: '/login',
@@ -39,9 +43,23 @@ const router = createBrowserRouter([
       {
         path: '/all-assignment',
         element: <AllAssignment></AllAssignment>,
-        loader: () => fetch('http://localhost:5000/assignment')
       },
-     
+      {
+        path: '/update/:id',
+        element: <Update></Update>
+      },
+      {
+        path: '/details/:id',
+        element: <Details></Details>
+      },
+      {
+        path: '/submit-form/:id',
+        element: <SubmitForm></SubmitForm>
+      },
+      {
+        path: '/my-submission/',
+        element: <MySubmission></MySubmission>
+    },
 
     ]
   },

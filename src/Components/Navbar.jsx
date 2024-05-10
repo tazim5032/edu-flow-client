@@ -93,7 +93,7 @@ const Navbar = () => {
 
                             <div>
                                 <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/create-assignment"><a>Create Assignment</a></NavLink>
-                            
+
                                 <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/"><a>Pending Assignment</a></NavLink>
                             </div>
 
@@ -147,9 +147,12 @@ const Navbar = () => {
                                 </button>
                             </li> */}
                             <li className="">
-                                <button className="btn btn-medium btn-ghost bg-cyan-200">
-                                    My Attempted Assignments
-                                </button>
+                                <Link to="/my-submission">
+                                    <button className="btn btn-medium btn-ghost bg-cyan-200">
+                                        My Attempted Assignments
+                                    </button>
+                                </Link>
+
                             </li>
 
                             <li>
