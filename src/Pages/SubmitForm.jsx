@@ -38,13 +38,13 @@ const SubmitForm = () => {
 
         const url = form.url.value;
         const quickNote = form.description.value;
-        const username = user.displayName;
+        const student_name = user.displayName;
         const student_email = user.email;
 
         //console.log(title, difficulty, description, marks, deadline, photo, username, email);
         const status = 'Pending'
         const info = {
-            url, quickNote, username, student_email, status, title, marks, obtained_marks, feedback
+            url, quickNote, student_name, student_email, status, title, marks, obtained_marks, feedback
         };
 
         console.log(info);

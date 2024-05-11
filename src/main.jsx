@@ -16,6 +16,8 @@ import Update from './Pages/Update.jsx';
 import Details from './Pages/Details.jsx';
 import SubmitForm from './Pages/SubmitForm.jsx';
 import MySubmission from './Pages/MySubmission.jsx';
+import PendingAssignment from './Pages/PendingAssignment.jsx';
+import GiveMarks from './Pages/GiveMarks.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,9 +59,17 @@ const router = createBrowserRouter([
         element: <SubmitForm></SubmitForm>
       },
       {
-        path: '/my-submission/',
+        path: '/my-submission',
         element: <MySubmission></MySubmission>
-    },
+      },
+      {
+        path: '/pending-assignment',
+        element: <PendingAssignment></PendingAssignment>
+      },
+      {
+        path: '/give-marks/:id',
+        element: <GiveMarks></GiveMarks>
+      },
 
     ]
   },

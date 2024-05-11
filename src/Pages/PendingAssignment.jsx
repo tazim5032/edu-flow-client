@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
-import useAuth from "../Hook/useAuth";
+import { Link } from "react-router-dom";
 
-const MySubmission = () => {
-    const { user } = useAuth();
+const PendingAssignment = () => {
+     const [assignment, setAssignment] = useState([]);
 
-    const [assignment, setAssignment] = useState([]);
+     //const status = 'Pending';
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/submission/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setAssignment(data);
-            });
-    }, [user]);
+     useEffect(() =>{
+        fetch(`http://localhost:5000/status/Pending`)
+        .then(res => res.json())
+        .then(data => setAssignment(data))
+    },[])
 
     return (
         <section className='container px-4 mx-auto pt-12'>
@@ -47,7 +45,7 @@ const MySubmission = () => {
                                             className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                         >
                                             <button className='flex items-center gap-x-2'>
-                                                <span>Marks</span>
+                                                <span>Examinee Name</span>
                                             </button>
                                         </th>
 
@@ -55,7 +53,7 @@ const MySubmission = () => {
                                             scope='col'
                                             className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                         >
-                                            Obtained Marks
+                                            Marks
                                         </th>
 
                                         <th
@@ -66,7 +64,7 @@ const MySubmission = () => {
                                         </th>
 
                                         <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
-                                            Feedback
+                                            Give Marks
                                         </th>
                                     </tr>
                                 </thead>
@@ -78,13 +76,15 @@ const MySubmission = () => {
                                                 <td className='px-4 py-4 text-sm   whitespace-nowrap'>
                                                     {item.title}
                                                 </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
-                                                    {item.marks}
+                                                    {item.student_name}
                                                 </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
-                                                    {item.obtained_marks}
+                                                    {item.marks}
                                                 </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
                                                     {item.status}
                                                 </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
-                                                    {item.feedback}
+                                                    <Link to={`/give-marks/${item._id}`}>
+                                                        <button className="btn p-2 bg-green-500 text-white">Give Mark</button>
+                                                    </Link>
                                                 </td>
                                             </tr>)
                                     }
@@ -99,4 +99,4 @@ const MySubmission = () => {
     );
 };
 
-export default MySubmission;
+export default PendingAssignment;
