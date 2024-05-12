@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 
 const Update = () => {
-
+    const navigate = useNavigate()
     const { id } = useParams();
     const { user } = useAuth();
 
@@ -78,11 +78,11 @@ const Update = () => {
                         confirmButtonText: 'ok'
                     })
 
-                  //  setRedirect(true); 
+                    navigate('/all-assignment')
                 }
             })
     }
-   
+
 
     return (
         <div className="">
@@ -90,15 +90,15 @@ const Update = () => {
             <h1 className="text-3xl font-bold text-center mt-8">Update Assignment
             </h1>
             <div className="flex flex-col-reverse sm:flex-row-reverse">
-                <form onSubmit={handleUpdate} 
-                className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
+                <form onSubmit={handleUpdate}
+                    className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
 
                     <div className="form-control">
                         <label className="label">
                             <span className="text-gray-700">Title</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="title" placeholder="Title" 
+                            <input type="text" name="title" placeholder="Title"
                                 className="input input-bordered w-full" defaultValue={product.title} />
                         </label>
                     </div>
@@ -109,7 +109,7 @@ const Update = () => {
                         </label>
 
                         <div className="input-group">
-                            <select name="difficulty"  id="difficultySelect"
+                            <select name="difficulty" id="difficultySelect"
                                 className="select select-bordered w-full"
                                 defaultValue={product.difficulty} >
                                 <option value="">Select Difficulty Level</option>
@@ -140,7 +140,7 @@ const Update = () => {
                             <label className="input-group">
                                 <input type="number" name="marks" placeholder="Marks"
                                     className="input input-bordered w-full" step="any" defaultValue={product.marks}
-                                    min="1" max="100"  />
+                                    min="1" max="100" />
                             </label>
                         </div>
 
@@ -151,7 +151,7 @@ const Update = () => {
                             </label>
 
                             <DatePicker
-                                className='border p-3 rounded-md' 
+                                className='border p-3 rounded-md'
                                 selected={startDate}
                                 onChange={date => setStartDate(date)}
                             />
