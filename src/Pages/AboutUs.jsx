@@ -12,7 +12,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 justify-center justify-items-center mb-[250px]">
+    <div className="grid grid-cols-2 justify-center justify-items-center gap-8 mb-[250px]">
       {items.map(item => (
         <motion.div
           key={item.id}
@@ -20,6 +20,7 @@ const AboutUs = () => {
           onClick={() => setSelectedId(item.id)}
           className="max-w-sm rounded overflow-hidden shadow-lg m-4 cursor-pointer"
           whileHover={{ scale: 1.5 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{item.title}</div>
@@ -31,16 +32,17 @@ const AboutUs = () => {
         {selectedId && (
           <motion.div
             layoutId={selectedId}
-            className="max-w-sm rounded overflow-hidden shadow-lg m-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            className="max-w-md rounded-lg overflow-hidden shadow-lg m-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
           >
             <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">
+              <div className="font-bold text-2xl mb-2 text-center">
                 {items.find(item => item.id === selectedId).title}
               </div>
-              <p className="text-gray-700 text-base">
+              <p className="text-gray-700 text-lg">
                 {items.find(item => item.id === selectedId).content}
               </p>
             </div>
