@@ -7,7 +7,7 @@ const MySubmission = () => {
     const [assignment, setAssignment] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/submission/${user?.email}`)
+        fetch(`${import.meta.env.VITE_API_URL}/submission/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAssignment(data);

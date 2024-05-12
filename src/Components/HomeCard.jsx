@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 
 const HomeCard = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/all-assignment`)
+        fetch(`${import.meta.env.VITE_API_URL}/all-assignment`)
             .then(res => res.json())
             .then(data => {
 

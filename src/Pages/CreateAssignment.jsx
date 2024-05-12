@@ -33,7 +33,7 @@ const CreateAssignment = () => {
 
         console.log(info);
 
-        fetch('http://localhost:5000/add-assignment', {
+        fetch('${import.meta.env.VITE_API_URL}/add-assignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

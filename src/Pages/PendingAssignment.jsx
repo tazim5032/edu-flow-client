@@ -9,7 +9,7 @@ const PendingAssignment = () => {
      //const status = 'Pending';
 
      useEffect(() =>{
-        fetch(`http://localhost:5000/status/${user.email}/Pending`)
+        fetch(`${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`)
         .then(res => res.json())
         .then(data => setAssignment(data))
     },[])

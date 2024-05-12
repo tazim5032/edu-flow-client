@@ -10,7 +10,7 @@ const SubmitForm = () => {
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/details/${id}`)
             .then(res => res.json())
             .then(data => {
                 setAssignment(data);
@@ -50,7 +50,7 @@ const SubmitForm = () => {
 
         console.log(info);
 
-        fetch('http://localhost:5000/submission', {
+        fetch('${import.meta.env.VITE_API_URL}/submission', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -76,8 +76,6 @@ const SubmitForm = () => {
 
             <h1 className="text-3xl font-bold text-center mt-8">Submit Assignment
             </h1>
-
-           
 
             <div className="flex flex-col-reverse sm:flex-row-reverse">
 

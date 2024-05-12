@@ -8,7 +8,7 @@ const Details = () => {
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/details/${id}`)
             .then(res => res.json())
             .then(data => {
                 setAssignment(data);

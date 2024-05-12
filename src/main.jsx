@@ -19,6 +19,7 @@ import MySubmission from './Pages/MySubmission.jsx';
 import PendingAssignment from './Pages/PendingAssignment.jsx';
 import GiveMarks from './Pages/GiveMarks.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
+import AboutUs from './Pages/AboutUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: '/give-marks/:id',
         element: <PrivateRoute> <GiveMarks></GiveMarks></PrivateRoute>
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>
       },
 
     ]

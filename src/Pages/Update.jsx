@@ -22,7 +22,7 @@ const Update = () => {
     //id die khuje nie aslam
     useEffect(() => {
 
-        fetch(`http://localhost:5000/update/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/update/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
@@ -61,7 +61,7 @@ const Update = () => {
         //console.log(info);
 
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

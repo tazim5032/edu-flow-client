@@ -56,7 +56,7 @@ const Navbar = () => {
 
                             <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-green-500 p-2 sm:mr-2' : 'font-bold p-2 sm:mr-2'} to="/"><a>Home</a></NavLink>
                             <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-green-500 p-2 sm:mr-2' : 'font-bold p-2 sm:mr-2'} to="/all-assignment"><a>Assignments</a></NavLink>
-
+                            
                         </li>
                         {
                             user ?
@@ -64,10 +64,13 @@ const Navbar = () => {
                                 <li>
                                     <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/create-assignment"><a>Create Assignment</a></NavLink>
                                     <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/pending-assignment"><a>Pending Assignment</a></NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
                                 </li>
 
 
-                                : <a></a>
+                                : <div>
+                                <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
+                            </div>
                         }
                     </ul>
                 </div>
@@ -95,10 +98,13 @@ const Navbar = () => {
                                 <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/create-assignment"><a>Create Assignment</a></NavLink>
 
                                 <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/pending-assignment"><a>Pending Assignment</a></NavLink>
+                                <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
                             </div>
 
 
-                            : <a></a>
+                            : <div>
+                                <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
+                            </div>
                     }
 
                 </ul>
