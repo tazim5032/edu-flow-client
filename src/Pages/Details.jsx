@@ -37,14 +37,16 @@ const Details = () => {
 
                 {/* Right Column: Details */}
                 <div>
-                    <h2 className="text-2xl font-bold mb-4">{assignment.title}</h2>
-                    
+                    <h2 className="text-2xl font-bold mb-4"> <span className="text-blue-600">Title:</span> {assignment.title}</h2>
+
                     <p className="text-lg mb-4"><span className="text-blue-600 ">Author:</span> {assignment.username}</p>
                     <p className="text-lg mb-4"><span className="text-blue-600 ">Author Email:</span> {assignment.email}</p>
-                    <p className="text-lg mb-4"><span className="text-blue-600 font-bold">
-                        Difficulty:</span> <span >{assignment.difficulty}</span></p>
-                    <p className="text-lg mb-4"><span className="text-blue-600 font-bold">
-                        Description:</span> {assignment.description}</p>
+                    <p className="text-lg mb-4"><span className="text-blue-600 font-bold ">
+                        Difficulty:</span> <span className="uppercase">{assignment.difficulty}</span></p>
+                    <p className="text-lg mb-4 text-justify">
+                        <span className="text-blue-600 font-bold">Description:</span> {assignment.description}
+                    </p>
+
                     <p className="text-lg mb-4"><span className="text-blue-600 font-bold">
                         Marks:</span> {assignment.marks}</p>
 

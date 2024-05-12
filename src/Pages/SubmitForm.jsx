@@ -33,6 +33,7 @@ const SubmitForm = () => {
 
         const title = assignment.title;
         const marks = assignment.marks;
+        const email = assignment.email;
         const obtained_marks = 'Pending'
         const feedback = 'Pending'
 
@@ -44,7 +45,7 @@ const SubmitForm = () => {
         //console.log(title, difficulty, description, marks, deadline, photo, username, email);
         const status = 'Pending'
         const info = {
-            url, quickNote, student_name, student_email, status, title, marks, obtained_marks, feedback
+            email,url, quickNote, student_name, student_email, status, title, marks, obtained_marks, feedback
         };
 
         console.log(info);

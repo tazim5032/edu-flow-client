@@ -1,5 +1,6 @@
 import Helmet from "react-helmet";
 import Faq from "../Components/Faq";
+import HomeCard from "../Components/HomeCard";
 import Slider from "../Components/Slider";
 
 const Home = () => {
@@ -8,9 +9,9 @@ const Home = () => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            {/* <Fade cascade damping={0.1}> */}
 
             <Slider></Slider>
+            <HomeCard></HomeCard>
             <Faq></Faq>
         </div>
     );

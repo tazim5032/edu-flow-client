@@ -9,6 +9,16 @@ const Card = ({ item, items, setItems }) => {
     const { _id, title, difficulty, description, marks, deadline, photo, username, email } = item;
 
     const handleDelete = id => {
+
+        if(!user)
+        {
+            return Swal.fire({
+                title: "Not Permitted",
+                text: "You can not delete this assignment",
+                icon: "error"
+            });
+        }
+
         if(user.email !== email){
            return Swal.fire({
             title: "Not Permitted",

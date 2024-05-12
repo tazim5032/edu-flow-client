@@ -18,6 +18,7 @@ import SubmitForm from './Pages/SubmitForm.jsx';
 import MySubmission from './Pages/MySubmission.jsx';
 import PendingAssignment from './Pages/PendingAssignment.jsx';
 import GiveMarks from './Pages/GiveMarks.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/create-assignment',
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
+
       },
       {
         path: '/all-assignment',
@@ -48,27 +50,29 @@ const router = createBrowserRouter([
       },
       {
         path: '/update/:id',
-        element: <Update></Update>
+        element: <PrivateRoute> <Update></Update></PrivateRoute>
+
       },
       {
         path: '/details/:id',
-        element: <Details></Details>
+        element: <PrivateRoute> <Details></Details></PrivateRoute>
+
       },
       {
         path: '/submit-form/:id',
-        element: <SubmitForm></SubmitForm>
+        element: <PrivateRoute> <SubmitForm></SubmitForm></PrivateRoute>
       },
       {
         path: '/my-submission',
-        element: <MySubmission></MySubmission>
+        element: <PrivateRoute> <MySubmission></MySubmission></PrivateRoute>
       },
       {
         path: '/pending-assignment',
-        element: <PendingAssignment></PendingAssignment>
+        element: <PrivateRoute> <PendingAssignment></PendingAssignment></PrivateRoute>
       },
       {
         path: '/give-marks/:id',
-        element: <GiveMarks></GiveMarks>
+        element: <PrivateRoute> <GiveMarks></GiveMarks></PrivateRoute>
       },
 
     ]

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../Hook/useAuth";
 
 const PendingAssignment = () => {
+    const {user} = useAuth();
      const [assignment, setAssignment] = useState([]);
 
      //const status = 'Pending';
 
      useEffect(() =>{
-        fetch(`http://localhost:5000/status/Pending`)
+        fetch(`http://localhost:5000/status/${user.email}/Pending`)
         .then(res => res.json())
         .then(data => setAssignment(data))
     },[])
@@ -15,10 +17,10 @@ const PendingAssignment = () => {
     return (
         <section className='container px-4 mx-auto pt-12'>
             <div className='flex items-center gap-x-3'>
-                <h2 className='text-lg font-medium  '>My Submissions</h2>
+                <h2 className='text-lg font-medium  '>Total Pending</h2>
 
                 <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
-                    {assignment.length} Submission
+                    {assignment.length} assignment
                 </span>
             </div>
 
