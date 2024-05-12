@@ -121,7 +121,7 @@ const CreateAssignment = () => {
                             <label className="input-group">
                                 <input type="number" name="marks" placeholder="Marks"
                                     className="input input-bordered w-full" step="any"
-                                    min="5" max="100" required />
+                                    min="1" max="100" required />
                             </label>
                         </div>
 

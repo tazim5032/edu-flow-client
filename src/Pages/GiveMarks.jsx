@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const GiveMarks = () => {
     const { id } = useParams();
-
+    const navigate = useNavigate()
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
@@ -56,6 +56,9 @@ const GiveMarks = () => {
                         confirmButtonText: 'ok'
                     })
 
+                    
+                    navigate('/pending-assignment')
+
                 }
             })
 
@@ -105,7 +108,7 @@ const GiveMarks = () => {
                             <input type="number" name="marks" 
                             defaultValue={assignment.marks}
                                 className="input input-bordered w-full" step="any"
-                                min="5" max="100" disabled />
+                                min="1" max="100" disabled />
                         </label>
                     </div>
 
@@ -116,7 +119,7 @@ const GiveMarks = () => {
                         <label className="input-group">
                             <input type="number" name="obtainedmarks" placeholder="Obtained Marks"
                                 className="input input-bordered w-full" step="any"
-                                min="5" max="100" required />
+                                min="0" max={assignment.marks} required />
                         </label>
                     </div>
                     
