@@ -56,7 +56,7 @@ const Navbar = () => {
 
                             <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-green-500 p-2 sm:mr-2' : 'font-bold p-2 sm:mr-2'} to="/"><a>Home</a></NavLink>
                             <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-green-500 p-2 sm:mr-2' : 'font-bold p-2 sm:mr-2'} to="/all-assignment"><a>Assignments</a></NavLink>
-                            
+
                         </li>
                         {
                             user ?
@@ -69,8 +69,8 @@ const Navbar = () => {
 
 
                                 : <div>
-                                <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
-                            </div>
+                                    <NavLink className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold border border-yellow-500 p-2 sm:mr-2 rounded' : 'font-bold p-2 sm:mr-2 rounded'} to="/about"><a>About Us</a></NavLink>
+                                </div>
                         }
                     </ul>
                 </div>
@@ -83,6 +83,8 @@ const Navbar = () => {
 
 
             </div>
+
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1" style={{ zIndex: 10 }}>
 
@@ -109,6 +111,8 @@ const Navbar = () => {
 
                 </ul>
             </div>
+
+
             <div className="navbar-end gap-1 text-center" style={{ zIndex: 10 }}>
                 {/* Conditionally render the toggle button based on the current theme */}
                 {theme === 'light' && (

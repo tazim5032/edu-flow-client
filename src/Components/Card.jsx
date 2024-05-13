@@ -95,10 +95,12 @@ const Card = ({ item, items, setItems }) => {
                                 Update
                             </button>
                         </Link>
-                        <button onClick={() => handleDelete(_id)} className="text-sm text-gray-600 hover:text-gray-900 focus:outline-none">
-                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        <button onClick={() => handleDelete(_id)} className="bg-red-500
+                             hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            {/* <button className="bg-red-500
+                             hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> */}
                                 Delete
-                            </button>
+                            {/* </button> */}
                         </button>
                     </div>
                 </div>
