@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -8,12 +9,25 @@ const GiveMarks = () => {
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/submitted/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setAssignment(data);
-            });
-    }, [id]);
+        getData()
+    }, [id])
+
+
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/submitted/${id}`
+        )
+        setAssignment(data)
+    }
+
+    // useEffect(() => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/submitted/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAssignment(data);
+    //         });
+    // }, [id]);
 
     if (!assignment || !Object.keys(assignment).length) {
         return (

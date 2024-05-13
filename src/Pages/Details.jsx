@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import { Link, useParams } from "react-router-dom";
@@ -8,13 +9,26 @@ const Details = () => {
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/details/${id}`,
+        getData()
+    }, [id])
+
+
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/details/${id}`
         )
-            .then(res => res.json())
-            .then(data => {
-                setAssignment(data);
-            });
-    }, [id]);
+        setAssignment(data)
+    }
+
+    // useEffect(() => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/details/${id}`,
+    //     )
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAssignment(data);
+    //         });
+    // }, [id]);
 
     if (!assignment || !Object.keys(assignment).length) {
         return (

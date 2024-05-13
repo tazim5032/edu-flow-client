@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 //import { useLoaderData } from "react-router-dom";
@@ -6,16 +7,29 @@ import Card from "../Components/Card";
 const AllAssignment = () => {
 
     const [items, setItems] = useState([]);
-   
+
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/all-assignment`)
-            .then(res => res.json())
-            .then(data => {
+        getData()
+    }, [])
+
+
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/all-assignment`
+        )
+        setItems(data)
+    }
+   
+    // useEffect(() => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/all-assignment`)
+    //         .then(res => res.json())
+    //         .then(data => {
                
-                setItems(data);
+    //             setItems(data);
                 
-            });
-    }, []);
+    //         });
+    // }, []);
 
     return (
         <div className="">

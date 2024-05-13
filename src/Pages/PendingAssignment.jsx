@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
@@ -8,11 +9,24 @@ const PendingAssignment = () => {
 
      //const status = 'Pending';
 
-     useEffect(() =>{
-        fetch(`${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`)
-        .then(res => res.json())
-        .then(data => setAssignment(data))
-    },[])
+     useEffect(() => {
+        getData()
+    }, [user])
+
+
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`
+        )
+        setAssignment(data)
+    }
+
+    //  useEffect(() =>{
+    //     fetch(`${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`)
+    //     .then(res => res.json())
+    //     .then(data => setAssignment(data))
+    // },[])
 
     return (
         <section className='container px-4 mx-auto pt-12'>
