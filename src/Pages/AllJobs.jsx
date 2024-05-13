@@ -11,34 +11,30 @@ const AllJobs = () => {
 
     const [filter, setFilter] = useState('')
     const [sort, setSort] = useState('')
+
     const [search, setSearch] = useState('')
     const [searchText, setSearchText] = useState('')
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(
-                `${import.meta.env.VITE_API_URL
-                }/all-jobs?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`
-            )
-            setItems(data)
-            //setCount(data.length)
+          const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-jobs?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}&search=${search}`)
+          setItems(data)
         }
         getData()
-    }, [currentPage, filter, itemsPerPage])
-
-
-
-    useEffect(() => {
+      }, [currentPage, filter, itemsPerPage, search, sort])
+      
+      useEffect(() => {
         const getCount = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/jobs-count?filter=${filter}&search=${search}`
-            )
-
-            setCount(data.count)
+          const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/jobs-count?filter=${filter}&search=${search}`
+          )
+    
+          setCount(data.count)
         }
         getCount()
-    }, [filter, search])
+      }, [filter, search])
 
-    console.log(items);
+    //console.log(items);
 
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()].map(element => element + 1)
@@ -84,14 +80,16 @@ const AllJobs = () => {
                         </select>
                     </div>
 
-                    <form>
+                    <form onSubmit={handleSearch}>
                         <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
                             <input
                                 className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                                 type='text'
+                                onChange={e => setSearchText(e.target.value)}
+                                value={searchText}
                                 name='search'
-                                placeholder='Enter Job Title'
-                                aria-label='Enter Job Title'
+                                placeholder='Enter Assignment Title'
+                                aria-label='Enter Assignment Title'
                             />
 
                             <button className='px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
@@ -115,7 +113,8 @@ const AllJobs = () => {
                             <option value='asc'>Ascending Order</option>
                         </select>
                     </div>
-                    <button className='btn'>Reset</button>
+                    <button  onClick={handleReset}
+                     className='btn'>Reset</button>
                 </div>
                 <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                     {items.map(item => (
