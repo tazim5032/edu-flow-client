@@ -21,15 +21,6 @@ const AllAssignment = () => {
         setItems(data)
     }
    
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}/all-assignment`)
-    //         .then(res => res.json())
-    //         .then(data => {
-               
-    //             setItems(data);
-                
-    //         });
-    // }, []);
 
     return (
         <div className="">

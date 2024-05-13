@@ -21,6 +21,7 @@ import GiveMarks from './Pages/GiveMarks.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AboutUs from './Pages/AboutUs.jsx';
 import { Toaster } from 'react-hot-toast';
+import AllJobs from './Pages/AllJobs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutUs></AboutUs>
+      },
+      {
+        path: '/all-jobs',
+        element: <AllJobs></AllJobs>
       },
 
     ]

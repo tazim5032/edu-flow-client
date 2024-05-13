@@ -1,36 +1,22 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../Hook/useAuth";
+import useAxiosSecure from "../Hook/useAxiosSecure";
 
 const MySubmission = () => {
     const { user } = useAuth();
-
+    const axiosSecure = useAxiosSecure();
     const [assignment, setAssignment] = useState([]);
 
     useEffect(() => {
         getData()
     }, [user])
 
-
-
      const getData = async () => {
-        const { data } = await axios(
-            `${import.meta.env.VITE_API_URL}/submission/${user?.email}`,
-            {
-                withCredentials: true
-            }
-        )
+        const { data } = await axiosSecure(
+            `/submission/${user?.email}`)
         setAssignment(data)
     }
 
-
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}/submission/${user?.email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAssignment(data);
-    //         });
-    // }, [user]);
 
     return (
         <section className='container px-4 mx-auto pt-12'>
