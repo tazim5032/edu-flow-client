@@ -17,7 +17,10 @@ const PendingAssignment = () => {
 
      const getData = async () => {
         const { data } = await axios(
-            `${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`
+            `${import.meta.env.VITE_API_URL}/status/${user.email}/Pending`,
+            {
+                withCredentials: true
+            }
         )
         setAssignment(data)
     }

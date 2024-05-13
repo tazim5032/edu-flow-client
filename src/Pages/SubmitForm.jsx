@@ -1,21 +1,37 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../Hook/useAuth";
 
 const SubmitForm = () => {
     const { id } = useParams();
     const { user } = useAuth();
+    const navigate = useNavigate();
+   
 
     const [assignment, setAssignment] = useState({});
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/details/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setAssignment(data);
-            });
-    }, [id]);
+        getData()
+    }, [id])
+
+
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/details/${id}`
+        )
+        setAssignment(data)
+    }
+
+    // useEffect(() => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/details/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAssignment(data);
+    //         });
+    // }, [id]);
 
     if (!assignment || !Object.keys(assignment).length) {
         return (
@@ -50,7 +66,7 @@ const SubmitForm = () => {
 
         console.log(info);
 
-        fetch('${import.meta.env.VITE_API_URL}/submission', {
+        fetch(`${import.meta.env.VITE_API_URL}/submission`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -67,6 +83,8 @@ const SubmitForm = () => {
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
+
+                    navigate('/my-submission')
                 }
             })
 

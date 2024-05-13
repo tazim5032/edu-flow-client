@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../Hook/useAuth";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 
 
 const Update = () => {
@@ -19,16 +20,29 @@ const Update = () => {
 
     const [product, setProduct] = useState({});
 
-    //id die khuje nie aslam
     useEffect(() => {
+        getData()
+    }, [id])
 
-        fetch(`${import.meta.env.VITE_API_URL}/update/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setProduct(data);
-            })
 
-    }, [id]);
+
+     const getData = async () => {
+        const { data } = await axios(
+            `${import.meta.env.VITE_API_URL}/update/${id}`
+        )
+        setProduct(data)
+    }
+
+    //id die khuje nie aslam
+    // useEffect(() => {
+
+    //     fetch(`${import.meta.env.VITE_API_URL}/update/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setProduct(data);
+    //         })
+
+    // }, [id]);
 
     //find already set difficulty level
     useEffect(() => {

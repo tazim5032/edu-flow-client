@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 
 const Root = () => {
     return (
-        <div className="">
+        <div className="light:bg-cyan-400">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

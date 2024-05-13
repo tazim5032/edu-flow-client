@@ -15,7 +15,10 @@ const MySubmission = () => {
 
      const getData = async () => {
         const { data } = await axios(
-            `${import.meta.env.VITE_API_URL}/submission/${user?.email}`
+            `${import.meta.env.VITE_API_URL}/submission/${user?.email}`,
+            {
+                withCredentials: true
+            }
         )
         setAssignment(data)
     }
