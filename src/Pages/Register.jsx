@@ -6,7 +6,7 @@ import { IoEyeOffSharp } from "react-icons/io5";
 import { FiEye } from "react-icons/fi";
 import { useState } from "react";
 import useAuth from "../Hook/useAuth";
-// import UseAuth from "../Hook/UseAuth";
+
 const Register = () => {
 
     const { createUser, updateUserProfile, logout } = useAuth();

@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import SocialLogIn from "../Components/SocialLogIn";
-import Swal from "sweetalert2";
+
 import Helmet from "react-helmet";
 import { useState } from "react";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FiEye } from "react-icons/fi";
 import useAuth from "../Hook/useAuth";
 import SocialLogIn from "../Components/SocialLogIn";
+import toast from "react-hot-toast";
+import axios from "axios";
+
 // import UseAuth from "../Hook/UseAuth";
 //import UseAuth from "../Components/Hook/UseAuth";
 
@@ -25,45 +28,40 @@ const Login = () => {
     const location = useLocation();
     const from = location?.state || '/';
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         const { email, password } = data;
 
-        signInUser(email, password)
-            .then(result => {
+        try {
+            const result = await signInUser(email, password);
 
-                if (result.user) {
-                    navigate(from);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Congrats',
-                        text: 'Login Successful!',
-                    });
-                    
-                    
+            console.log(result.user);
+
+
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
+                email: result?.user?.email
+            },
+                {
+                    withCredentials: true
                 }
-                else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Invalid email or password!',
-                    });
-                }
+            )
+            //console.log(result.user);
+            console.log(data);
+            navigate(from);
+            toast.success('Signin Successful')
+        }
+        catch (err) {
+            console.log(err)
+            toast.error(err?.message)
+        }
 
-               
 
-            })
-            .catch(error => {
-                console.error(error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Invalid email or password!',
-                });
-            })
+
+
+
     }
 
-   
-    
+
+
     return (
 
         <div className=" mx-[1%] md:mx[10%] lg:mx-[20%] rounded-xl border-2 mt-12">
@@ -73,8 +71,7 @@ const Login = () => {
             <h1 className="text-2xl text-center my-10 pt-6">Please Login</h1>
 
             <form onSubmit={handleSubmit(onSubmit)} className="md:w-3/4 lg:w-1/2 mx-auto"
-            data-aos="zoom-in"
-            data-aos-duration="1000">
+            >
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -96,10 +93,10 @@ const Login = () => {
                         {...register("password", { required: true })}
                     />
 
-                    <span className="absolute top-12 right-1" onClick={ () => setShowPassword(!showPassword)}>
-                    {
-                        showPassword ? <IoEyeOffSharp></IoEyeOffSharp> : <FiEye></FiEye>
-                    }
+                    <span className="absolute top-12 right-1" onClick={() => setShowPassword(!showPassword)}>
+                        {
+                            showPassword ? <IoEyeOffSharp></IoEyeOffSharp> : <FiEye></FiEye>
+                        }
                     </span>
 
                     {errors.password && <span className="text-red-600">
@@ -114,12 +111,13 @@ const Login = () => {
                 </div>
             </form>
             <p className="text-center mt-4"
-            data-aos="zoom-in"
-            data-aos-duration="1000">Do not have an account?
+                data-aos="zoom-in"
+                data-aos-duration="1000">Do not have an account?
                 <Link className="text-blue-600 font-bold" to="/register"> Register</Link> </p>
+
             <div className="md:w-3/4 lg:w-1/2 mx-auto pb-6"
-            data-aos="zoom-in"
-            data-aos-duration="1000">
+                data-aos="zoom-in"
+                data-aos-duration="1000">
                 <SocialLogIn ></SocialLogIn>
             </div>
 

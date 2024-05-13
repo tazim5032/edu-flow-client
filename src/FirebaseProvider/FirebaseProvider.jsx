@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -13,7 +14,7 @@ const githubProvider = new GithubAuthProvider();
 
 //social auth provider
 const FirebaseProvider = ({ children }) => {
-    
+
 
     const [user, setUser] = useState(null);
     //console.log(user);
@@ -28,7 +29,7 @@ const FirebaseProvider = ({ children }) => {
     //update profile
     const updateUserProfile = (name, image) => {
         return updateProfile(auth.currentUser, {
-            displayName: name, 
+            displayName: name,
             photoURL: image,
         })
     }
@@ -52,8 +53,14 @@ const FirebaseProvider = ({ children }) => {
     }
 
     //logout
-    const logout = () => {
+    const logout = async () => {
         setUser(null);
+        // setLoading
+        const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+            withCredentials: true
+        })
+
+        console.log(data);
         signOut(auth);
     }
 
@@ -61,8 +68,8 @@ const FirebaseProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             //if (user) {
-                setUser(user);
-                setLoading(false);
+            setUser(user);
+            setLoading(false);
             //}
         });
 

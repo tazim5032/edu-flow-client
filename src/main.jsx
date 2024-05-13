@@ -20,6 +20,7 @@ import PendingAssignment from './Pages/PendingAssignment.jsx';
 import GiveMarks from './Pages/GiveMarks.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AboutUs from './Pages/AboutUs.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <FirebaseProvider>
       <RouterProvider router={router} />
+      <Toaster></Toaster>
     </FirebaseProvider>
   </>
 )

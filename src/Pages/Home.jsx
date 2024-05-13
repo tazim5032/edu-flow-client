@@ -11,7 +11,9 @@ const Home = () => {
             </Helmet>
 
             <Slider></Slider>
+
             <HomeCard></HomeCard>
+            
             <Faq></Faq>
         </div>
     );
