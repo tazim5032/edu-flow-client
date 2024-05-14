@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import useAuth from "../Hook/useAuth";
 import useAxiosSecure from "../Hook/useAxiosSecure";
 
@@ -11,7 +12,7 @@ const MySubmission = () => {
         getData()
     }, [user])
 
-     const getData = async () => {
+    const getData = async () => {
         const { data } = await axiosSecure(
             `/submission/${user?.email}`)
         setAssignment(data)
@@ -20,6 +21,9 @@ const MySubmission = () => {
 
     return (
         <section className='container px-4 mx-auto pt-12'>
+            <Helmet>
+                <title>My Submissions</title>
+            </Helmet>
             <div className='flex items-center gap-x-3'>
                 <h2 className='text-lg font-medium  '>My Submissions</h2>
 

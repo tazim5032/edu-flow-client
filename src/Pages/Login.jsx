@@ -1,7 +1,5 @@
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import SocialLogIn from "../Components/SocialLogIn";
-
 import Helmet from "react-helmet";
 import { useState } from "react";
 import { IoEyeOffSharp } from "react-icons/io5";
@@ -11,8 +9,6 @@ import SocialLogIn from "../Components/SocialLogIn";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-// import UseAuth from "../Hook/UseAuth";
-//import UseAuth from "../Components/Hook/UseAuth";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -53,14 +49,7 @@ const Login = () => {
             console.log(err)
             toast.error(err?.message)
         }
-
-
-
-
-
     }
-
-
 
     return (
 

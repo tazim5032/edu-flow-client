@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Helmet from "react-helmet";
 import Swal from "sweetalert2";
 import useAuth from "../Hook/useAuth";
 
@@ -8,7 +9,6 @@ const CreateAssignment = () => {
     const [startDate, setStartDate] = useState(new Date())
 
     const { user } = useAuth();
-
 
     const handleAddProduct = async e => {
 
@@ -31,9 +31,9 @@ const CreateAssignment = () => {
             title, difficulty, description, marks, deadline, photo, username, email
         };
 
-        console.log(info);
+        //console.log(info);
 
-        fetch('${import.meta.env.VITE_API_URL}/add-assignment', {
+        fetch(`${import.meta.env.VITE_API_URL}/add-assignment`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -58,6 +58,9 @@ const CreateAssignment = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Create Assignment</title>
+            </Helmet>
 
             <h1 className="text-3xl font-bold text-center mt-8">Add an Assignment
             </h1>

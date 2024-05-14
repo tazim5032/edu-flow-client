@@ -13,7 +13,7 @@ const Home = () => {
             <Slider></Slider>
 
             <HomeCard></HomeCard>
-            
+
             <Faq></Faq>
         </div>
     );

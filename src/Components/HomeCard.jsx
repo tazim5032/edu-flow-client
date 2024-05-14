@@ -5,7 +5,7 @@ const HomeCard = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/all-assignment`)
+        fetch(`${import.meta.env.VITE_API_URL}/all-assignment-feature`)
             .then(res => res.json())
             .then(data => {
 

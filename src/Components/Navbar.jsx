@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
-// import { Typewriter } from "react-simple-typewriter";
-// import { Tooltip } from "react-tooltip";
-// import UseAuth from "../Hook/UseAuth";
 
 const Navbar = () => {
 

@@ -1,21 +1,21 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
 import useAxiosSecure from "../Hook/useAxiosSecure";
 
 const PendingAssignment = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [assignment, setAssignment] = useState([]);
 
-     //const status = 'Pending';
+    //const status = 'Pending';
 
-     useEffect(() => {
+    useEffect(() => {
         getData()
     }, [user])
 
-     const getData = async () => {
+    const getData = async () => {
         const { data } = await axiosSecure(
             `/status/${user.email}/Pending`)
         setAssignment(data)
@@ -23,6 +23,9 @@ const PendingAssignment = () => {
 
     return (
         <section className='container px-4 mx-auto pt-12'>
+            <Helmet>
+                <title>Pending Assignment</title>
+            </Helmet>
             <div className='flex items-center gap-x-3'>
                 <h2 className='text-lg font-medium  '>Total Pending</h2>
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -12,22 +13,12 @@ const GiveMarks = () => {
         getData()
     }, [id])
 
-
-
-     const getData = async () => {
+    const getData = async () => {
         const { data } = await axios(
             `${import.meta.env.VITE_API_URL}/submitted/${id}`
         )
         setAssignment(data)
     }
-
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}/submitted/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAssignment(data);
-    //         });
-    // }, [id]);
 
     if (!assignment || !Object.keys(assignment).length) {
         return (
@@ -47,10 +38,10 @@ const GiveMarks = () => {
         const obtained_marks = form.obtainedmarks.value;
         const feedback = form.feedback.value;
 
-        
+
         const status = 'Completed'
         const info = {
-            status,  obtained_marks, feedback
+            status, obtained_marks, feedback
         };
 
         fetch(`${import.meta.env.VITE_API_URL}/status-update/${id}`, {
@@ -70,7 +61,6 @@ const GiveMarks = () => {
                         confirmButtonText: 'ok'
                     })
 
-                    
                     navigate('/pending-assignment')
 
                 }
@@ -80,6 +70,9 @@ const GiveMarks = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Give Marks</title>
+            </Helmet>
 
             <h1 className="text-3xl font-bold text-center mt-8">Give Marks
             </h1>
@@ -87,7 +80,7 @@ const GiveMarks = () => {
             <div className="flex flex-col-reverse sm:flex-row-reverse">
 
 
-                <form  onSubmit={handleSubmit}
+                <form onSubmit={handleSubmit}
                     className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
                     <h1 className="mb-6">Assignment Title: {assignment.title}</h1>
 
@@ -119,8 +112,8 @@ const GiveMarks = () => {
                             <span className="text-gray-700">Marks</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="marks" 
-                            defaultValue={assignment.marks}
+                            <input type="number" name="marks"
+                                defaultValue={assignment.marks}
                                 className="input input-bordered w-full" step="any"
                                 min="1" max="100" disabled />
                         </label>
@@ -136,7 +129,7 @@ const GiveMarks = () => {
                                 min="0" max={assignment.marks} required />
                         </label>
                     </div>
-                    
+
                     <div className="form-control mb-4">
                         <label className="label">
                             <span className="text-gray-700">Feedback</span>

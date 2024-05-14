@@ -2,16 +2,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import useAuth from "../Hook/useAuth";
+// import useAuth from "../Hook/useAuth";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import Helmet from "react-helmet";
 
 
 const Update = () => {
     const navigate = useNavigate()
     const { id } = useParams();
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
 
     //const [redirect, setRedirect] = useState(false);
@@ -24,25 +25,12 @@ const Update = () => {
         getData()
     }, [id])
 
-
-
-     const getData = async () => {
+    const getData = async () => {
         const { data } = await axios(
             `${import.meta.env.VITE_API_URL}/update/${id}`
         )
         setProduct(data)
     }
-
-    //id die khuje nie aslam
-    // useEffect(() => {
-
-    //     fetch(`${import.meta.env.VITE_API_URL}/update/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProduct(data);
-    //         })
-
-    // }, [id]);
 
     //find already set difficulty level
     useEffect(() => {
@@ -100,6 +88,9 @@ const Update = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Update Assignment</title>
+            </Helmet>
 
             <h1 className="text-3xl font-bold text-center mt-8">Update Assignment
             </h1>

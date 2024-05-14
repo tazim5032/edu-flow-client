@@ -72,9 +72,9 @@ const Card = ({ item, items, setItems }) => {
         >
             <div className="shadow-lg rounded-lg overflow-hidden h-full border-2">
                 <img className="w-full h-48 object-cover object-center" src={photo} alt={title} />
-                <div className="py-4 px-6">
+                <div className="py-1 px-6">
                     <h2 className="text-xl font-semibold ">{title}</h2>
-                    <div className="flex justify-between items-center mt-4">
+                    <div className="flex justify-between items-center mt-2">
                         <div className="flex items-center justify-between">
                             <span className="text-sm  mr-2">
                                 Marks: {marks}

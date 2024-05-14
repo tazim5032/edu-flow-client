@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../Hook/useAuth";
@@ -8,7 +9,7 @@ const SubmitForm = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const navigate = useNavigate();
-   
+
 
     const [assignment, setAssignment] = useState({});
 
@@ -17,21 +18,13 @@ const SubmitForm = () => {
     }, [id])
 
 
-
-     const getData = async () => {
+    const getData = async () => {
         const { data } = await axios(
             `${import.meta.env.VITE_API_URL}/details/${id}`
         )
         setAssignment(data)
     }
 
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}/details/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAssignment(data);
-    //         });
-    // }, [id]);
 
     if (!assignment || !Object.keys(assignment).length) {
         return (
@@ -61,7 +54,7 @@ const SubmitForm = () => {
         //console.log(title, difficulty, description, marks, deadline, photo, username, email);
         const status = 'Pending'
         const info = {
-            email,url, quickNote, student_name, student_email, status, title, marks, obtained_marks, feedback
+            email, url, quickNote, student_name, student_email, status, title, marks, obtained_marks, feedback
         };
 
         console.log(info);
@@ -91,6 +84,9 @@ const SubmitForm = () => {
     }
     return (
         <div className="">
+            <Helmet>
+                <title>Submit Assignment</title>
+            </Helmet>
 
             <h1 className="text-3xl font-bold text-center mt-8">Submit Assignment
             </h1>
@@ -98,19 +94,19 @@ const SubmitForm = () => {
             <div className="flex flex-col-reverse sm:flex-row-reverse">
 
 
-                <form  onSubmit={handleSubmit}
-                className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
-                <h1 className="mb-6">Assignment Title: {assignment.title}</h1>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-gray-700">Assignment Link(PDF/Doc)</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="url" placeholder="Assignment URL"
-                                    className="input input-bordered w-full" required />
-                            </label>
-                        </div>
-                    
+                <form onSubmit={handleSubmit}
+                    className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
+                    <h1 className="mb-6">Assignment Title: {assignment.title}</h1>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-gray-700">Assignment Link(PDF/Doc)</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="url" placeholder="Assignment URL"
+                                className="input input-bordered w-full" required />
+                        </label>
+                    </div>
+
 
                     <div className="form-control mb-4 ">
                         <label className="label">
