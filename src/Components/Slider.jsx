@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Slider = () => {
 
     return (
-        <div className="mx-[1%] sm:mx-[3%] pt-8">
+        <div className="pt-4">
             <Swiper navigation={true} loop={true} modules={[Navigation, Autoplay]} className="mySwiper" autoplay={{
                 delay: 2500,
                 disableOnInteraction: false
@@ -29,7 +29,7 @@ const Slider = () => {
                             <br />
                             <Link
                                 to='/'
-                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-600'
+                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
                                 Add an Assignment
                             </Link>
@@ -49,7 +49,7 @@ const Slider = () => {
                                 <br />
                             <Link
                                 to='/'
-                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-600'
+                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
                                 Add an Assignment
                             </Link>
@@ -68,7 +68,7 @@ const Slider = () => {
                                 <br />
                             <Link
                                 to='/'
-                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-600'
+                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
                                 Add an Assignment
                             </Link>
@@ -88,7 +88,7 @@ const Slider = () => {
                             <br />
                             <Link
                                 to='/'
-                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-600'
+                                className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
                                 Add an Assignment
                             </Link>

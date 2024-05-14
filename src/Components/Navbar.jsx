@@ -131,6 +131,7 @@ const Navbar = () => {
                     user ? <div className="dropdown dropdown-end">
                         <label tabIndex={0}
                             className="btn btn-ghost btn-circle avatar"
+                            title={user?.displayName}
                         >
 
                             <div className="tool w-10 rounded-full" >
@@ -139,9 +140,6 @@ const Navbar = () => {
                                         "https://i.ibb.co/sjymvr8/Capture4.png"} />
                             </div>
 
-                            {/* <Tooltip anchorSelect=".idd" place="bottom"  className="h-[80px]">
-                                {user?.displayName}
-                            </Tooltip> */}
 
                         </label>
 
@@ -155,7 +153,7 @@ const Navbar = () => {
                             </li> */}
                             <li className="">
                                 <Link to="/my-submission">
-                                    <button className="btn btn-medium btn-ghost bg-cyan-200">
+                                    <button className="btn btn-medium btn-ghost bg-red-700 text-white">
                                         My Attempted Assignments
                                     </button>
                                 </Link>
@@ -165,7 +163,7 @@ const Navbar = () => {
                             <li>
                                 <button
                                     onClick={logout}
-                                    className="btn btn-sm btn-ghost bg-cyan-200 mt-2">Logout</button>
+                                    className="btn  text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 shadow-lg transform hover:scale-105 transition-transform duration-300">Logout</button>
                             </li>
                         </ul>
                     </div>
@@ -173,17 +171,17 @@ const Navbar = () => {
 
                         <div>
                             <Link to="/login">
-                                <button className="btn text-white bg-black">Login</button>
+                                <button className="btn text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 shadow-lg transform hover:scale-105 transition-transform duration-300">Login</button>
                             </Link>
                             <Link to="/register">
-                                <button className="btn text-white bg-black">Register</button>
+                                <button className="btn text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 shadow-lg transform hover:scale-105 transition-transform duration-300">Register</button>
                             </Link>
                         </div>
                 }
                 {
                     user ? <button
                         onClick={logout}
-                        className="btn btn-medium btn-ghost bg-black text-white mt-2">Logout</button>
+                        className="btn btn-medium btn-ghost bg-red-700 text-white mt-2">Logout</button>
                         : <a></a>
                 }
 

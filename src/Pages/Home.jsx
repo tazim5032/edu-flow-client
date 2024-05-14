@@ -1,5 +1,6 @@
 import Helmet from "react-helmet";
 import Faq from "../Components/Faq";
+import Form from "../Components/Form";
 import HomeCard from "../Components/HomeCard";
 import Slider from "../Components/Slider";
 
@@ -15,6 +16,7 @@ const Home = () => {
             <HomeCard></HomeCard>
 
             <Faq></Faq>
+            <Form></Form>
         </div>
     );
 };
