@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Helmet from "react-helmet";
+import Iframe from "react-iframe";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -85,20 +86,35 @@ const GiveMarks = () => {
                     <h1 className="mb-6">Assignment Title: {assignment.title}</h1>
 
                     <div className="form-control">
+                        
                         <label className="label">
-                            <span className="text-gray-700">Assignment Link(PDF/Doc)</span>
+
+                            <span className="">Assignment Link(PDF/Doc)</span>
                         </label>
                         <label className="input-group">
+
+
                             <input type="text" name="url"
                                 defaultValue={assignment.url}
                                 className="input input-bordered w-full" disabled />
+                                
                         </label>
+                        
                     </div>
+
+                    <Iframe url={assignment.url}
+                            // width="640px"
+                            height="320px"
+                            id=""
+                            className="mt-4"
+                            display="block"
+                            position="relative" 
+                            />
 
 
                     <div className="form-control mb-4 ">
                         <label className="label">
-                            <span className="text-gray-700">Quick Note</span>
+                            <span className="0">Quick Note</span>
                         </label>
                         <label className="input-group">
                             <input type="text" name="description"
@@ -109,7 +125,7 @@ const GiveMarks = () => {
 
                     <div className="form-control mb-4">
                         <label className="label">
-                            <span className="text-gray-700">Marks</span>
+                            <span className="">Marks</span>
                         </label>
                         <label className="input-group">
                             <input type="number" name="marks"
@@ -121,7 +137,7 @@ const GiveMarks = () => {
 
                     <div className="form-control mb-4">
                         <label className="label">
-                            <span className="text-gray-700">Obtained Marks</span>
+                            <span className="">Obtained Marks</span>
                         </label>
                         <label className="input-group">
                             <input type="number" name="obtainedmarks" placeholder="Obtained Marks"
@@ -132,7 +148,7 @@ const GiveMarks = () => {
 
                     <div className="form-control mb-4">
                         <label className="label">
-                            <span className="text-gray-700">Feedback</span>
+                            <span className="">Feedback</span>
                         </label>
                         <label className="input-group">
                             <input type="text" name="feedback" placeholder="Give Feedback"

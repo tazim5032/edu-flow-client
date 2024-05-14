@@ -76,7 +76,7 @@ This project is a full-stack web application for online group study with friends
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/group-study-platform.git
+    git clone https://github.com/tazim5032/group-study-platform.git
     cd group-study-platform
     ```
 
