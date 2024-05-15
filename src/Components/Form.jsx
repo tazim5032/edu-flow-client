@@ -3,16 +3,16 @@ const Form = () => {
         <section className="py-6">
 
             <div className="container mx-auto flex flex-col items-center pb-6 mb-4 md:p-10 md:px-12">
-                <h1 className="text-4xl font-semibold leading-none text-center">What students are saying about us</h1>
+                <h1 className="text-4xl font-semibold leading-none text-center">What Students are Saying About Us</h1>
             </div>
             <div className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
                 <div className="flex flex-col items-center mx-12 lg:mx-0">
-                    <div className="relative text-center bg-gradient-to-r from-green-700 via-blue-500 to-purple-600 p-6 rounded-xl shadow-xl">
+                    <div className="relative text-center bg-gradient-to-r from-green-600 via-blue-400 to-purple-400 p-6 rounded-xl shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute top-0 left-0 w-8 h-8 dark:text-gray-300">
                             <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                             <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                         </svg>
-                        <p className="px-6 py-1 text-lg italic">This assignment management website has been a game changer for our study group. Its user-friendly interface makes creating, submitting, and reviewing assignments a breeze. The ability to filter assignments by difficulty is very useful, and the peer review system adds valuable feedback. The secure authentication ensures our data is safe. Highly recommend it for group studies!</p>
+                        <p className="px-6 py-1 text-lg italic text-black">This assignment management website has been a game changer for our study group. Its user-friendly interface makes creating, submitting, and reviewing assignments a breeze. The ability to filter assignments by difficulty is very useful, and the peer review system adds valuable feedback. The secure authentication ensures our data is safe. Highly recommend it for group studies!</p>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-300">
                             <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
                             <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
@@ -22,12 +22,12 @@ const Form = () => {
                     <p>Kamrul Islam</p>
                 </div>
                 <div className="flex flex-col items-center max-w-lg mx-12 lg:mx-0">
-                    <div className="relative text-center bg-gradient-to-r from-green-700 via-blue-500 to-purple-600 p-6 rounded-xl shadow-xl">
+                    <div className="relative text-center bg-gradient-to-r from-green-600 via-blue-400 to-purple-400 p-6 rounded-xl shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="absolute top-0 left-0 w-8 h-8 dark:text-gray-300">
                             <path fill="currentColor" d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                             <path fill="currentColor" d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                         </svg>
-                        <p className="px-6 py-1 text-lg italic">A fantastic tool for managing group assignments! The clear interface and seamless registration process make it easy to use. The detailed assignment cards and the ability to delete or update assignments are great features. The theme toggle and document preview add to the overall user experience. This website has improved our study sessions significantly.</p>
+                        <p className="px-6 py-1 text-lg italic text-black">A fantastic tool for managing group assignments! The clear interface and seamless registration process make it easy to use. The detailed assignment cards and the ability to delete or update assignments are great features. The theme toggle and document preview add to the overall user experience. This website has improved our study sessions significantly.</p>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-300">
                             <path fill="currentColor" d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
                             <path fill="currentColor" d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
@@ -42,8 +42,8 @@ const Form = () => {
             <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                 <div className="py-6 md:py-0 md:px-6
                 flex flex-col justify-center items-center rounded-xl
-                bg-gradient-to-r from-green-700 via-blue-500 to-purple-600">
-                    <h1 className="text-4xl font-bold italic">Get in touch</h1>
+                bg-gradient-to-r from-green-600 via-blue-400 to-purple-400 text-black sm:mr-8">
+                    <h1 className="text-4xl font-semibold italic">Get in touch</h1>
 
                     <div className="space-y-4">
                         <p className="flex items-center">

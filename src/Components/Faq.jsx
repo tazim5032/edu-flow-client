@@ -3,7 +3,7 @@ const Faq = () => {
 
         <div className="mt-12">
 
-            <h1 className="text-center mt-12 text-4xl">Statistics</h1>
+            <h1 className="text-center mt-12 text-4xl font-semibold">Statistics</h1>
             <p className="text-center mt-2 ">Assignment Statistics Overview</p>
 
             <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">

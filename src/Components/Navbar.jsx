@@ -39,7 +39,7 @@ const Navbar = () => {
     };
 
 
-
+    //fixed top-0 w-full bg-gray-800 text-white p-4 z-50
     return (
         <div className="navbar fixed top-0 left-0 w-full bg-white shadow-md z-50">
             <div className="navbar-start">

@@ -28,7 +28,7 @@ const ShowDetails = () => {
     }
 
     return (
-        <div className="flex flex-col sm:flex-row p-4  min-h-screen">
+        <div className="flex flex-col sm:flex-row p-4 pt-24 min-h-screen">
             <div className="mt-4 sm:mt-0 sm:w-1/2  rounded-xl shadow-lg
              p-6 sm:h-screen  flex justify-center items-center">
                 

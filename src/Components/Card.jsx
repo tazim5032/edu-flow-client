@@ -59,6 +59,19 @@ const Card = ({ item, items, setItems }) => {
         });
     };
 
+    const getDifficultyClass = (difficulty) => {
+        switch (difficulty) {
+            case 'easy':
+                return 'bg-green-400';
+            case 'medium':
+                return 'bg-red-200';
+            case 'hard':
+                return 'bg-red-500';
+            default:
+                return '';
+        }
+    };
+
     return (
         <motion.div
             initial={{ scale: 0 }}
@@ -70,20 +83,20 @@ const Card = ({ item, items, setItems }) => {
             }}
             className="w-full max-w-xs mx-auto"
         >
-            <div className="shadow-lg rounded-lg overflow-hidden h-full border-2">
+            <div className="shadow-2xl rounded-lg overflow-hidden h-full">
                 <img className="w-full h-48 object-cover object-center" src={photo} alt={title} />
                 <div className="py-1 px-6">
                     <h2 className="text-xl font-semibold ">{title}</h2>
                     <div className="flex justify-between items-center mt-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-sm  mr-2">
+                            <span className="text-sm mr-2">
                                 Marks: {marks}
                             </span>
                             <span className="text-sm  mr-2">
                                 Deadline: {new Date(deadline).toLocaleDateString()}
                             </span>
                         </div>
-                        <span className={`text-xs font-semibold px-2 py-1 uppercase rounded bg-red-200`}>
+                        <span className={`text-xs font-semibold px-2 py-1 uppercase rounded ${getDifficultyClass(difficulty)}`}>
                             {difficulty}
                         </span>
                     </div>
@@ -99,7 +112,7 @@ const Card = ({ item, items, setItems }) => {
                              hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                             {/* <button className="bg-red-500
                              hover:bg-red-700 text-white font-bold py-2 px-4 rounded"> */}
-                                Delete
+                            Delete
                             {/* </button> */}
                         </button>
                     </div>
