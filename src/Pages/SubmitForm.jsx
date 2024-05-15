@@ -83,7 +83,7 @@ const SubmitForm = () => {
 
     }
     return (
-        <div className="">
+        <div className="pt-24">
             <Helmet>
                 <title>Submit Assignment</title>
             </Helmet>

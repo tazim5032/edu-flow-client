@@ -28,7 +28,7 @@ const Details = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 pt-8">
+        <div className="container mx-auto px-4 pt-32">
             <Helmet>
                 <title>Details</title>
             </Helmet>

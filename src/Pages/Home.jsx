@@ -6,7 +6,7 @@ import Slider from "../Components/Slider";
 
 const Home = () => {
     return (
-        <div className="">
+        <div className="pt-[56px]">
             <Helmet>
                 <title>Home</title>
             </Helmet>

@@ -22,7 +22,7 @@ const PendingAssignment = () => {
     }
 
     return (
-        <section className='container px-4 mx-auto pt-12'>
+        <section className='container px-4 mx-auto pt-24'>
             <Helmet>
                 <title>Pending Assignment</title>
             </Helmet>

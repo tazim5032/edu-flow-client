@@ -57,7 +57,7 @@ const CreateAssignment = () => {
 
 
     return (
-        <div className="">
+        <div className="pt-32">
             <Helmet>
                 <title>Create Assignment</title>
             </Helmet>

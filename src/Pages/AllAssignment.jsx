@@ -57,7 +57,7 @@ const AllAssignment = () => {
 
     //console.log(search)
     return (
-        <div className='container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between'>
+        <div className='container px-6 pb-10 pt-32 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between'>
             <Helmet>
                 <title>All Assignments</title>
             </Helmet>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Helmet from "react-helmet";
+import { Link } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
 import useAxiosSecure from "../Hook/useAxiosSecure";
 
@@ -20,7 +21,7 @@ const MySubmission = () => {
 
 
     return (
-        <section className='container px-4 mx-auto pt-12'>
+        <section className='container px-4 mx-auto pt-24'>
             <Helmet>
                 <title>My Submissions</title>
             </Helmet>
@@ -76,6 +77,12 @@ const MySubmission = () => {
                                         <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                             Feedback
                                         </th>
+
+                                        <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
+                                        Preview docs/pdf
+                                        </th>
+
+
                                     </tr>
                                 </thead>
                                 <tbody className=' divide-y divide-gray-200 '>
@@ -93,7 +100,14 @@ const MySubmission = () => {
                                                     {item.status}
                                                 </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
                                                     {item.feedback}
+                                                </td><td className='px-4 py-4 text-sm   whitespace-nowrap'>
+                                                    <Link to={`/details-submission/${item._id}`} className="text-sm text-gray-600 hover:text-gray-900">
+                                                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            Preview docs/pdf
+                                                        </button>
+                                                    </Link>
                                                 </td>
+
                                             </tr>)
                                     }
 

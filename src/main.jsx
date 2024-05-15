@@ -21,6 +21,7 @@ import GiveMarks from './Pages/GiveMarks.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AboutUs from './Pages/AboutUs.jsx';
 import { Toaster } from 'react-hot-toast';
+import ShowDetails from './Components/ShowDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,6 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <PrivateRoute> <Details></Details></PrivateRoute>
-
       },
       {
         path: '/submit-form/:id',
@@ -80,6 +80,11 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutUs></AboutUs>
+      },
+      {
+        path: '/details-submission/:id',
+        element: <PrivateRoute> <ShowDetails></ShowDetails> </PrivateRoute>
+
       },
      
 

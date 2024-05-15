@@ -87,7 +87,7 @@ const Update = () => {
 
 
     return (
-        <div className="">
+        <div className="pt-24">
             <Helmet>
                 <title>Update Assignment</title>
             </Helmet>

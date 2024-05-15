@@ -12,7 +12,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 justify-center justify-items-center gap-8 mb-[250px]">
+    <div className="grid grid-cols-2 justify-center justify-items-center gap-8 mb-[250px] pt-24">
       {items.map(item => (
         <motion.div
           key={item.id}

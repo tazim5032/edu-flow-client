@@ -70,7 +70,7 @@ const GiveMarks = () => {
     }
 
     return (
-        <div className="">
+        <div className="pt-32">
             <Helmet>
                 <title>Give Marks</title>
             </Helmet>
@@ -82,11 +82,12 @@ const GiveMarks = () => {
 
 
                 <form onSubmit={handleSubmit}
-                    className="rounded-xl w-1/2 bg-base-100 flex flex-col justify-center  py-8 mx-auto" >
+                    className="rounded-xl w-1/2 bg-base-100 
+                    flex flex-col justify-center  py-8 mx-auto" >
                     <h1 className="mb-6">Assignment Title: {assignment.title}</h1>
 
                     <div className="form-control">
-                        
+
                         <label className="label">
 
                             <span className="">Assignment Link(PDF/Doc)</span>
@@ -97,19 +98,10 @@ const GiveMarks = () => {
                             <input type="text" name="url"
                                 defaultValue={assignment.url}
                                 className="input input-bordered w-full" disabled />
-                                
-                        </label>
-                        
-                    </div>
 
-                    <Iframe url={assignment.url}
-                            // width="640px"
-                            height="320px"
-                            id=""
-                            className="mt-4"
-                            display="block"
-                            position="relative" 
-                            />
+                        </label>
+
+                    </div>
 
 
                     <div className="form-control mb-4 ">
@@ -160,9 +152,19 @@ const GiveMarks = () => {
                         type="submit" value="Submit" />
                 </form>
 
-                <div className="flex justify-center items-center">
+                {/* <div className="flex justify-center items-center">
                     <img className="rounded-xl w-2/3" src="https://i.ibb.co/Tc4VfXh/assignment.png" alt="" />
-                </div>
+                    
+                   
+                </div> */}
+                 <Iframe url={assignment.url}
+                        // width="640px"
+                        height=""
+                        id=""
+                        className="mt-4 sm:w-1/2 h-screen sm:mr-4 ml-4 rounded-xl"
+                        display="block"
+                        position="relative"
+                    />
             </div>
         </div>
     );
