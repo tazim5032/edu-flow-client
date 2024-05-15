@@ -1,4 +1,8 @@
-# Group Study Online Platform
+# EduFLow - A group Study Online Platform
+
+### Assignment_category_0001
+
+- [Live Link](https://edu-flow.firebaseapp.com)
 
 This project is a full-stack web application for online group study with friends. Every registered user is considered a friend of others. Users can create assignments, complete them, and grade their friends' assignments.
 
@@ -70,7 +74,17 @@ This project is a full-stack web application for online group study with friends
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** Firebase, JWT
-- **Date Picker:** [react-datepicker](https://www.npmjs.com/package/react-datepicker)
+
+## Additional Technologies Used
+
+- [React Simple Typewriter](https://www.npmjs.com/package/react-simple-typewriter)
+- [React Tooltip](https://react-tooltip.com) 
+- [Sweet Alert](https://sweetalert2.github.io)
+- [Framer Motion](https://www.framer.com/motion)
+- [Sweet Alert](https://sweetalert2.github.io)
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker)
+- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
+
 
 ## Installation
 

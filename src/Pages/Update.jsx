@@ -157,7 +157,7 @@ const Update = () => {
 
                             <DatePicker
                                 className='border p-3 rounded-md'
-                                selected={startDate}
+                                selected={product.deadline}
                                 onChange={date => setStartDate(date)}
                             />
                         </div>
