@@ -6,9 +6,7 @@
 
 This project is a full-stack web application for online group study with friends. Every registered user is considered a friend of others. Users can create assignments, complete them, and grade their friends' assignments.
 
-## Features
 
-## Assignment Management Project
 
 ### Features:
 
