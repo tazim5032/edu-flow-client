@@ -8,62 +8,21 @@ This project is a full-stack web application for online group study with friends
 
 ## Features
 
-### Home Page (Public)
-- **Navbar**
-  - Logo, Assignments, Login, Register links (before login)
-  - Logo, Assignments, Create Assignments, Pending Assignments, User Avatar (after login)
-  - User Avatar dropdown: My Attempted Assignments, Logout button
-- **Banner Section**
-  - Themed banner based on the project
-- **Feature Section**
-  - Cards highlighting features of the application
-- **FAQ Section**
-  - Frequently asked questions
-- **Footer**
-  - Copyright and relevant links
+## Assignment Management Project
 
-### Create Assignment Page (Private)
-- Form for creating assignments with:
-  - Title, Description, Marks, Thumbnail Image URL, Assignment Difficulty Level (dropdown), Due Date (using `react-datepicker`)
-- Success message upon successful assignment creation
+### Features:
 
-### Assignments Page (Public)
-- Displays all assignments created by any user
-- Filter assignments based on difficulty level (easy, medium, hard)
-- Individual assignment cards with:
-  - Thumbnail, Title, Marks, Difficulty Level, Delete, Update, View Assignment buttons
-- **Delete Button Functionality**
-  - Only the creator can delete their assignments
-  - Confirmation modal for delete action
-  - Success or error message based on the action
-- **Update Button Functionality**
-  - Any user can update assignments
-  - Pre-filled form with current assignment data
-  - Success message and optional redirect to assignments page
-- **View Assignment Button Functionality**
-  - Navigates to assignment details page
-  - "Take Assignment" button to submit an assignment
-  - Assignment submission form with:
-    - PDF/doc link submission, Quick note text area
-  - Submitted assignments default to pending status
-
-### My Submitted/Attempted Assignments Page (Private)
-- Displays assignments submitted by the logged-in user
-- Shows: Title, Status, Marks, Obtained Marks, Feedback
-
-### Pending Assignments Page (Private)
-- Displays all pending assignments submitted by users
-- Excludes marked assignments
-- Shows: Title, Marks, Examinee Name, "Give Mark" button
-- "Give Mark" button navigates to a marking page or opens a modal with:
-  - PDF/docs link, Notes, Marks input field, Feedback input field, Submit button
-  - Changes status to completed upon marking
-
-### Authentication
-- Login and Registration pages (public)
-- Validations for all authentication forms
-- JWT implementation for private routes
-  - JWT token creation and storage on client-side for both email/password-based and social login
+- **Authentication**: Users can log in using Google, GitHub, or email and password authentication.
+- **Featured Assignment**: Users can see top-rated assignments.
+- **Assignment Management**: Users can add, update, and delete assignments.
+- **Take Assignment**: Students can take assignments and submit them.
+- **My Attempted Assignments**: Students can view all the assignments they have attempted. Assignments can be in pending or complete state.
+- **Assignment Evaluation**: Upon assignment submission, the creator can evaluate the assignment, provide marks, and give feedback.
+- **Pending Assignments**: Users can view assignments they have submitted that are pending evaluation.
+- **Search and Filter**: Users can search for assignments by title, filter by difficulty level, and sort by date.
+- **FAQ**: Users can access frequently asked questions.
+- **Customer Reviews**: Users can read reviews from other students.
+- **Responsive Design**: The website is fully responsive and accessible on all devices.
 
 ### Additional Features
 - Preview PDF submissions with iframe on Submitted Assignment page
