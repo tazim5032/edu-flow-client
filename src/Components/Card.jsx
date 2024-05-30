@@ -74,13 +74,13 @@ const Card = ({ item, items, setItems }) => {
 
     return (
         <motion.div
-            initial={{ scale: 0 }}
-            animate={{ rotate: 360, scale: 1 }}
-            transition={{
-                type: "spring",
-                stiffness: 250,
-                damping: 100
-            }}
+            // initial={{ scale: 0 }}
+            // animate={{ rotate: 360, scale: 1 }}
+            // transition={{
+            //     type: "spring",
+            //     stiffness: 250,
+            //     damping: 100
+            // }}
             className="w-full max-w-xs mx-auto"
         >
             <div className="shadow-2xl rounded-lg overflow-hidden h-full">

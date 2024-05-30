@@ -22,6 +22,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AboutUs from './Pages/AboutUs.jsx';
 import { Toaster } from 'react-hot-toast';
 import ShowDetails from './Components/ShowDetails.jsx';
+import Profile from './Pages/Profile.jsx';
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivateRoute> <Update></Update></PrivateRoute>
+
+      },
+      {
+        path: '/user-profile',
+        element: <PrivateRoute><Profile></Profile> </PrivateRoute>
 
       },
       {

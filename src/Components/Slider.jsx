@@ -28,10 +28,10 @@ const Slider = () => {
                             </p>
                             <br />
                             <Link
-                                to='/'
+                                to='/all-assignment'
                                 className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
-                                Add an Assignment
+                                Take an Assignment
                             </Link>
                         </div>
                         <img src={'https://i.ibb.co/jyvfTkV/a1.png'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
@@ -48,10 +48,10 @@ const Slider = () => {
                                 Enable seamless collaboration among team members and students. Share resources, track progress, and communicate effortlessly.</p>
                                 <br />
                             <Link
-                                to='/'
+                                to='/all-assignment'
                                 className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
-                                Add an Assignment
+                                Take an Assignment
                             </Link>
                         </div>
                         <img src={'https://i.ibb.co/CK1BrTC/a2.png'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
@@ -67,10 +67,10 @@ const Slider = () => {
                                 Never miss a deadline again. Our advanced tracking system helps you stay on top of assignments, monitor progress, and meet goals.</p>
                                 <br />
                             <Link
-                                to='/'
+                                to='/all-assignment'
                                 className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
-                                Add an Assignment
+                                Take an Assignment
                             </Link>
                         </div>
                         <img src={'https://i.ibb.co/sv8029q/a3.png'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />
@@ -87,10 +87,10 @@ const Slider = () => {
                                 Assign tasks, set deadlines, and track performance with ease.</p>
                             <br />
                             <Link
-                                to='/'
+                                to='/all-assignment'
                                 className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize  rounded-md lg:w-auto bg-green-900'
                             >
-                                Add an Assignment
+                                Take an Assignment
                             </Link>
                         </div>
                         <img src={'https://i.ibb.co/LtVRmH8/a4.png'} className=' h-full w-full object-cover mix-blend-overlay' alt="" />

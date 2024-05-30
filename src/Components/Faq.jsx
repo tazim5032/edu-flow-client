@@ -64,7 +64,7 @@ const Faq = () => {
                         </div>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <img src="https://i.ibb.co/8PT8cdL/faq.png" alt="" />
+                        <img src="https://i.ibb.co/jJ8VscF/faq.png" alt="" />
                     </div>
                 </div>
             </div>

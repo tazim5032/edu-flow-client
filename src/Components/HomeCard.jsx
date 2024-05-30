@@ -20,9 +20,9 @@ const HomeCard = () => {
             Featured Assignment</h1>
             <h1 className='text-center mt-2'>Highlighting Outstanding Assignments for Your Inspiration</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12 mx-[2%] sm:mx-[4%]">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mt-12 mx-[2%] sm:mx-[4%]">
                 {
-                    items.slice(0, 6).map(item => <Card
+                    items.slice(0, 8).map(item => <Card
                         key={item._id}
                         item={item}
                         items={items}

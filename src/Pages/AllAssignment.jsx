@@ -4,7 +4,7 @@ import Card from '../Components/Card'
 import Helmet from 'react-helmet';
 
 const AllAssignment = () => {
-    const [itemsPerPage, setItemsPerPage] = useState(3)
+    const [itemsPerPage, setItemsPerPage] = useState(4)
     const [currentPage, setCurrentPage] = useState(1)
     const [count, setCount] = useState(0)
     const [filter, setFilter] = useState('')
@@ -119,7 +119,7 @@ const AllAssignment = () => {
                         Reset
                     </button>
                 </div>
-                <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3'>
+                <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-3 lg:grid-cols-4'>
                     {items.map(item => (
                         <Card
                             key={item._id}
