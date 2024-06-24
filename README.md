@@ -1,7 +1,5 @@
 # EduFLow - A group Study Online Platform
 
-### Assignment_category_0001
-
 - [Live Link](https://edu-flow.firebaseapp.com)
 
 This project is a full-stack web application for online group study with friends. Every registered user is considered a friend of others. Users can create assignments, complete them, and grade their friends' assignments.
